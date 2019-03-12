@@ -1,16 +1,15 @@
-- name: Deploys AWS VMs in the Public VPC
-  hosts: localhost
+- name: Deploys AWS EC2 Instances
+  hosts: aws-deploy-hosts
   connection: local
   gather_facts: False
-
-
-  roles:
-     - aws-instance-deploy
-
-
-       #- name: Provisions the newly created VMs
-       #  hosts: ec2hosts
-       #  user: ec2-user
-       #  gather_facts: True
-       #  roles:
-       #      - aws-instance-provision
+  tasks:
+      - name: Deploy VMs
+        with_items:
+            - "{{ lookup('file', 'inventories/aws-deploy-hosts').splitlines() }}"
+        include_role:
+           name: aws-instance-deploy
+        loop_control:
+           loop_var: hostname
+  environment:
+      AWS_ACCESS_KEY: "{{ vault_ec2_access_key }}"
+      AWS_SECRET_ACCESS_KEY: "{{ vault_ec2_secret_key }}"
