@@ -20,7 +20,7 @@
   route53:
       state: present
       private_zone: yes
-      zone: adahinh.net
+      zone: "{{ aws_dns_zone }}"
       record: "{{ item.tags.Name }}"
       type: A
       ttl: 7200
@@ -28,3 +28,7 @@
       wait: yes
   with_items: "{{ ec2.instances }}"
 
+- name: Add server DNS name to provisioning inventory
+  lineinfile:
+      path: "{{ inventory_dir }}/aws-provisioning-inventory"
+      line: "{{ hostname }}"

@@ -5,7 +5,7 @@
   tasks:
       - name: Deploy VMs
         with_items:
-            - "{{ lookup('file', 'inventories/aws-deploy-hosts').splitlines() }}"
+            - "{{ lookup('file', 'hosts/aws-deploy-hosts').splitlines() }}"
         include_role:
            name: aws-instance-deploy
         loop_control:
