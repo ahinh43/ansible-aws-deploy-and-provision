@@ -12,9 +12,6 @@
          Name: "{{ hostname }}"
   register: ec2
 
-- name: Add all instances private IPs to host group
-  add_host: hostname={{ item.private_ip }} groups=ec2hosts
-  loop: "{{ ec2.instances }}"
 
 - name: Add DNS entries for the newly deployed instances
   route53:
@@ -28,7 +25,9 @@
       wait: yes
   with_items: "{{ ec2.instances }}"
 
+
 - name: Add server DNS name to provisioning inventory
   lineinfile:
-      path: "{{ inventory_dir }}/aws-provisioning-inventory"
+      path: "{{ inventory_dir }}/aws-deploy"
+      insertafter: "[aws\\-provision\\-hosts]"
       line: "{{ hostname }}"

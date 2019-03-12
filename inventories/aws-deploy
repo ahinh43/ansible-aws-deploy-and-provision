@@ -1,2 +1,7 @@
 [aws-deploy-hosts]
 localhost
+
+[aws-provision-hosts]
+testvm8.adahinh.net
+testvm9.adahinh.net
+

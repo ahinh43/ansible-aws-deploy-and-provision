@@ -1,0 +1,14 @@
+# Playbook is meant to be run from the full deployment playbook. A separate playbook that just provisions a machine will be created at a later date.
+- name: Provisions AWS EC2 VMs
+  hosts: aws-provision-hosts
+  remote_user: ec2-user
+  become: yes
+  become_user: root
+  serial: 5
+
+  roles:
+      - aws-instance-provision-rhel-base 
+  environment:
+      AWS_ACCESS_KEY: "{{ vault_ec2_access_key }}"
+      AWS_SECRET_ACCESS_KEY: "{{ vault_ec2_secret_key }}"
+

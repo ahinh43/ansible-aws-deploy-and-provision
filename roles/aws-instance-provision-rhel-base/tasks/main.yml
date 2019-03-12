@@ -1,0 +1,18 @@
+- name: It works!
+  debug:
+      msg: "It works!"
+
+#- include: set_hostname.yml
+#  tags: ['hostname']
+#- include: rhel_satellite_subscription.yml
+#  tags: ['satellite_sub']
+#- include: install_epel_repo.yml
+#  tags: ['epel']
+#- include: config_krb_ad_auth.yml
+#  tags: ['krb_ad']
+#- include: install_and_configure_ntp.yml
+#  tags: ['ntp']
+#- include: update_all.yml
+#  tags: ['update_all']
+#- include: install_base_packages.yml
+#  tags: ['base_packages']
