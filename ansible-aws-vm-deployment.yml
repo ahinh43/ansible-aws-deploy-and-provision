@@ -1,0 +1,16 @@
+- name: Deploys AWS VMs in the Public VPC
+  hosts: localhost
+  connection: local
+  gather_facts: False
+
+
+  roles:
+     - aws-instance-deploy
+
+
+       #- name: Provisions the newly created VMs
+       #  hosts: ec2hosts
+       #  user: ec2-user
+       #  gather_facts: True
+       #  roles:
+       #      - aws-instance-provision

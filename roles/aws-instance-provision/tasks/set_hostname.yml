@@ -1,0 +1,3 @@
+- name: Set hostname to FQDN
+  hostname:
+      name: "{{ inventory_hostname?. }}"
