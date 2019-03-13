@@ -1,13 +1,15 @@
 - name: Launch AMI instance(s)
   ec2:
-      key_name: ansible_admin
-      instance_type: t2.micro
+      key_name: "{{ ec2_key_name }}"
+      instance_type: "{{ ec2_instance_type }}"
       image: "{{ ami_id }}"
       wait: yes
       group_id: "{{ aws_group_id }}"
+#     The Count should never be changed higher than 1, unless you want more EC2 instances with the same hostname on them
       count: 1
       vpc_subnet_id: "{{ aws_subnet_id }}" 
-      region: us-east-1
+      region: "{{ aws_region }}"
+      assign_public_ip: "{{ ec2_public_ip }}"
       instance_tags: 
          Name: "{{ hostname }}"
   register: ec2

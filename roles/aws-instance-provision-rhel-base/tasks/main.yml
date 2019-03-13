@@ -1,18 +1,24 @@
-- name: It works!
-  debug:
-      msg: "It works!"
-
-#- include: set_hostname.yml
-#  tags: ['hostname']
-#- include: rhel_satellite_subscription.yml
-#  tags: ['satellite_sub']
-#- include: install_epel_repo.yml
-#  tags: ['epel']
+- include: set_hostname.yml
+  tags: ['hostname']
+- include: rhel_subscription.yml
+  tags: ['rhel_sub']
+- include: install_epel_repo.yml
+  tags: ['epel']
 #- include: config_krb_ad_auth.yml
 #  tags: ['krb_ad']
 #- include: install_and_configure_ntp.yml
 #  tags: ['ntp']
-#- include: update_all.yml
-#  tags: ['update_all']
-#- include: install_base_packages.yml
-#  tags: ['base_packages']
+- include: update_all.yml
+  tags: ['update_all']
+- include: install_base_packages.yml
+  tags: ['base_packages']
+
+- name: Reboot the servers
+  reboot:
+      reboot_timeout: 3600
+
+#- name: Clean out the provisioning section of the inventory file
+#  local_action:
+#      module: template
+#      src: ../templates/aws-deploy.j2
+#      dest: "{{ inventory_dir }}/aws-deploy"

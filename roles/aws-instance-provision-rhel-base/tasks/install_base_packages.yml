@@ -1,0 +1,11 @@
+- name: Install base packages
+  yum:
+      name:
+         - tmux
+         - vim
+         - git
+         - rsync
+         - wget
+         - net-tools
+         - bind-utils
+      state: present

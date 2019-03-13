@@ -1,0 +1,5 @@
+- name: Register and subscribe the system to Redhat Customer Portal
+  redhat_subscription:
+      state: present
+      username: "{{ redhat_username }}"
+      password: "{{ vault_redhat_password }}"
