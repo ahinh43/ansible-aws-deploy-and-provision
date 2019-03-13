@@ -13,12 +13,14 @@
 - include: install_base_packages.yml
   tags: ['base_packages']
 
+- name: Allow password logins to instances
+  lineinfile:
+      path: /etc/ssh/sshd_config
+      regexp: "PasswordAuthentication no"
+      line: "PasswordAuthentication yes"
+      backup: yes
+
 - name: Reboot the servers
   reboot:
       reboot_timeout: 3600
 
-#- name: Clean out the provisioning section of the inventory file
-#  local_action:
-#      module: template
-#      src: ../templates/aws-deploy.j2
-#      dest: "{{ inventory_dir }}/aws-deploy"
