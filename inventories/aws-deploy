@@ -1,4 +1,2 @@
 [aws-deploy-hosts]
 localhost
-
-[aws-provision-hosts]

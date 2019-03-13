@@ -26,13 +26,3 @@
 
 - name: Run the provisioning Playbook
   import_playbook: ansible-aws-vm-fullprovision.yml
-      
-- name: Clean up inventory
-  hosts: aws-deploy-hosts
-  connection: local
-  gather_facts: False
-  tasks:
-      - name: Clear out the provision hosts section of the deploy inventory
-        template:
-           src: "defaults/aws-deploy.j2"
-           dest: "{{ inventory_dir }}/aws-deploy"

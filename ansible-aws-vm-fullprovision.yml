@@ -1,6 +1,6 @@
 # Playbook is meant to be run from the full deployment playbook. A separate playbook that just provisions a machine will be created at a later date.
 - name: Provisions AWS EC2 VMs
-  hosts: aws-provision-hosts
+  hosts: ec2-provision 
   remote_user: ec2-user
   become: yes
   become_user: root

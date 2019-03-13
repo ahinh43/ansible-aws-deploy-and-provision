@@ -27,9 +27,8 @@
       wait: yes
   with_items: "{{ ec2.instances }}"
 
-
-- name: Add server DNS name to provisioning inventory
-  lineinfile:
-      path: "{{ inventory_dir }}/aws-deploy"
-      insertafter: "[aws\\-provision\\-hosts]"
-      line: "{{ hostname }}"
+- name: Add new Instance FQDN to group
+  add_host:
+      name: "{{ item.tags.Name }}"
+      groups: ec2-provision
+  with_items: "{{ ec2.instances }}"

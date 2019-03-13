@@ -1,5 +1,3 @@
-aws_access_key: "{{ vault_ec2_access_key }}"
-aws_secret_key: "{{ vault_ec2_secret_key }}"
 ami_id: "ami-011b3ccf1bd6db744"
 aws_group_id: "sg-04b76f9f804dd68cb"
 aws_subnet_id: "subnet-05688d81a2f825718"
