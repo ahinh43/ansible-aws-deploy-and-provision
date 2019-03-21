@@ -7,7 +7,8 @@
   serial: 5
 
   roles:
-      - aws-instance-provision-rhel-base 
+      - aws-instance-provision-rhel-base
+      - aws-users
   environment:
       AWS_ACCESS_KEY: "{{ vault_ec2_access_key }}"
       AWS_SECRET_ACCESS_KEY: "{{ vault_ec2_secret_key }}"

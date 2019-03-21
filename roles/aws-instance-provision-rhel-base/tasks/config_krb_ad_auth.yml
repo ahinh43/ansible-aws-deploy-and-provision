@@ -1,0 +1,27 @@
+- name: Installing required packages for Active Directory Authentication
+  yum:
+    name:
+      - krb5-workstation
+      - pam_krb5
+    state: present
+
+
+- name: Put the pre-configured krb5.conf in place of the default
+  copy:
+    src: ../files/etc/krb5.conf
+    dest: /etc/krb5.conf
+    owner: root
+    group: root
+    mode: 0644
+    setype: krb5_conf_t
+
+- name: Check if authconfig already enabled krb5 auth
+  command: "/bin/egrep '^auth.*sufficient.*pam_krb5.so' /etc/pam.d/system-auth"
+  register: authconfig_run
+  changed_when: false
+  ignore_errors: true
+
+- name: Configure server to use krb5 (AD) for authentication
+  command: /usr/sbin/authconfig --enablekrb5 --update
+  when: authconfig_run.rc != 0
+

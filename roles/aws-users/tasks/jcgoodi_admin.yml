@@ -1,0 +1,7 @@
+- name: Verify and add jcgoodi_admin if not present
+  user:
+    name: jcgoodi_admin
+    comment: "Jacob Goodin (Admin)"
+    uid: 1113
+    group: 10
+    shell: /bin/bash

@@ -1,0 +1,28 @@
+# Launches and provisions RHEL VMs on AWS EC2.
+- name: Deploys AWS EC2 Instances 
+  hosts: aws-dctech-deploy-hosts
+  connection: local 
+  gather_facts: False
+  tasks:
+      - name: Deploy VMs
+        with_items:
+            - "{{ lookup('file', 'hosts/aws-deploy-hosts').splitlines() }}"
+        include_role:
+           name: aws-instance-deploy
+        loop_control:
+           loop_var: hostname
+      
+  environment:
+      AWS_ACCESS_KEY: "{{ vault_ec2_access_key }}"
+      AWS_SECRET_ACCESS_KEY: "{{ vault_ec2_secret_key }}"
+
+- name: Preparing to provision VMs
+  hosts: aws-dctech-deploy-hosts
+  connection: local
+  gather_facts: False
+  tasks:
+      - name: Wait 60 seconds for the VMs to fully come up
+        wait_for: timeout=60
+
+- name: Run the provisioning Playbook
+  import_playbook: ansible-aws-vm-fullprovision.yml

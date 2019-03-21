@@ -1,0 +1,7 @@
+- name: Verify and add ahinh_admin if not present
+  user:
+    name: ahinh_admin
+    comment: "Alec Hinh (Admin)"
+    uid: 1107
+    group: 10
+    shell: /bin/bash

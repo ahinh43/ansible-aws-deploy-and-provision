@@ -1,2 +1,9 @@
-[aws-deploy-hosts]
+[aws-dctech-deploy-hosts]
 localhost
+
+[aws-public-deploy-hosts]
+localhost
+
+[aws-private-deploy-hosts]
+localhost
+
