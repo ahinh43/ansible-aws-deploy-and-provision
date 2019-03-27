@@ -1,7 +1,8 @@
 - name: Launch AMI instance(s)
   ec2:
       key_name: "{{ ec2_key_name }}"
-      instance_type: "{{ ec2_instance_type }}"
+      #  instance_type: "{{ ec2_instance_type }}"
+      instance_type: "{{ cli_instance_type|default('t2.micro') }}"
       image: "{{ ami_id }}"
       wait: yes
       group_id: "{{ aws_group_id }}"
@@ -13,7 +14,6 @@
       instance_tags: 
          Name: "{{ hostname }}"
   register: ec2
-
 
 - name: Add DNS entries for the newly deployed instances
   route53:
