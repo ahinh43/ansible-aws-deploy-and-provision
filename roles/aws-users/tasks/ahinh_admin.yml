@@ -2,6 +2,6 @@
   user:
     name: ahinh_admin
     comment: "Alec Hinh (Admin)"
-    uid: 1107
+    uid: 1605
     group: 10
     shell: /bin/bash
