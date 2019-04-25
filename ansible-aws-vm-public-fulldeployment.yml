@@ -21,8 +21,8 @@
   connection: local
   gather_facts: False
   tasks:
-      - name: Wait 60 seconds for the VMs to fully come up
-        wait_for: timeout=60
+      - name: Wait 30 seconds for the VMs to fully come up
+        wait_for: timeout=30
 
 - name: Run the provisioning Playbook
   import_playbook: ansible-aws-vm-fullprovision.yml

@@ -1,9 +1,9 @@
 [aws-dctech-deploy-hosts]
-localhost
+127.0.0.1
 
 [aws-public-deploy-hosts]
-localhost
+127.0.0.1
 
 [aws-private-deploy-hosts]
-localhost
+127.0.0.1
 
