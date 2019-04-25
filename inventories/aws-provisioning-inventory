@@ -1,3 +1,11 @@
 [provision-hosts]
-testvm8.adahinh.net
-testvm9.adahinh.net
+influx01a.adahinh.net
+influx02a.adahinh.net
+influxrelay01b.adahinh.net
+snorthwall.adahinh.net
+influx01b.adahinh.net
+rundeeck.adahinh.net
+sightbeyondsight.adahinh.net
+squid.adahinh.net
+gatling.adahinh.net
+influxrelay01a.adahinh.net

@@ -8,8 +8,8 @@
   tags: ['krb_ad']
 #- include: install_and_configure_ntp.yml
 #  tags: ['ntp']
-- include: update_all.yml
-  tags: ['update_all']
+#- include: update_all.yml
+#  tags: ['update_all']
 - include: install_base_packages.yml
   tags: ['base_packages']
 

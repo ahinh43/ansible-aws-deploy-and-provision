@@ -1,5 +1,5 @@
-#- include: svc_lansweeper.yml
-#  tags: ['svc_lansweeper']
+- include: svc_lansweeper.yml
+  tags: ['svc_lansweeper']
 - include: ahinh_admin.yml
   tags: ['ahinh_admin']
 - include: jcgoodi_admin.yml

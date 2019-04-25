@@ -1,0 +1,7 @@
+- name: Verify and add ahinh_admin if not present
+  user:
+    name: svc_lansweeper
+    comment: "Lansweeper Service Account"
+    uid: 1142
+    group: 10
+    shell: /bin/bash
