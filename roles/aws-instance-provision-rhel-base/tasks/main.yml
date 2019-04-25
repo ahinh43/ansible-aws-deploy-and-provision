@@ -2,8 +2,8 @@
   tags: ['hostname']
 - include: rhel_subscription.yml
   tags: ['rhel_sub']
-- include: install_epel_repo.yml
-  tags: ['epel']
+  #- include: install_epel_repo.yml
+  #  tags: ['epel']
 - include: config_krb_ad_auth.yml
   tags: ['krb_ad']
 #- include: install_and_configure_ntp.yml
