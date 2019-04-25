@@ -3,10 +3,10 @@
       name:
          - tmux
          - vim
-         - git
-         - rsync
+         #   - git
+         #     - rsync
          - wget
-         - net-tools
-         - bind-utils
+         #    - net-tools
+         #   - bind-utils
          - htop
       state: present
